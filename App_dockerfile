@@ -1,0 +1,22 @@
+FROM ubuntu:20.04
+
+RUN apt update -y && \
+    apt upgrade -y && \
+    apt install nginx -y && \
+    apt install python3-pip -y && \
+    apt install -y python3-mysqldb && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/*
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
+WORKDIR /simple-flaskApp
+
+COPY ./simple-flaskApp /simple-flaskApp
+ADD ./Config/app.service /etc/systemd/system/app.service
+ADD ./Config/app.conf /etc/nginx/sites-available/default
+RUN ln -S /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+CMD service nginx start && python3 backend/server.py
+
+# clean cash

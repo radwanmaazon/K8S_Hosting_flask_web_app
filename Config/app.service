@@ -1,0 +1,14 @@
+[Unit]
+Description=python3 instance to serve myproject
+After=network.target
+
+[Service]
+User=radwan
+Group=www-data
+
+WorkingDirectory=/simple-flaskApp/backend/
+Environment="PATH=/usr/local/bin/"
+ExecStart=/usr/bin/python3 server.py
+
+[Install]
+WantedBy=multi-user.target
