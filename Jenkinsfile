@@ -1,8 +1,8 @@
 pipeline {
-    agent any
+    agent {'flask-slave'}
 
     stages {
-        stage('Hello') {
+        stage('build') {
             steps {
                 script {
                     sh '''
