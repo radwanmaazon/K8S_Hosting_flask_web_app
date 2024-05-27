@@ -1,5 +1,5 @@
 pipeline {
-    agent {'flask-slave'}
+    agent { label 'radwan-jenkins-pipeline' }
 
     stages {
         stage('build') {
