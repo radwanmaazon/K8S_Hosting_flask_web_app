@@ -18,11 +18,4 @@ pipeline {
             }
         }
     }
-
-        stage('deploy'){
-            steps{
-                echo "pass"
-            }
-        }
-
 }
