@@ -21,7 +21,7 @@ pipeline {
     stages {
         stage('deploy'){
             steps{
-
+                echo "pass"
             }
         }
     }
