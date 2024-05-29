@@ -17,7 +17,7 @@ spec:
         app: grocery-website
     spec:
       containers:
-      - image: radwanmaazon/grocery_flask_app:v0.1
+      - image: radwanmaazon/grocery_flask_app:${BUILD_NUMBER}
         name: grocery-flask-app-mg8q5
         env:
             - name: DB_HOST
