@@ -20,11 +20,12 @@ pipeline {
             steps{
                 script {
                     echo ('deploy')
-                    withCredentials([file(credentialsId: 'youCredId', variable: 'secretFile')]){
+                    withCredentials([file(credentialsId: 'flask_app_cred', variable: 'secretFile')]){
                         sh """
                             cp Deployment/application.yml Deployment/application.yml.temp
                             cat Deployment/application.yml.temp | envsubst > Deployment/application.yml 
-                            rm Deployment/application.yml.temp
+                            rm Deployment/application.yml.temp 
+                            kubectl apply -f Deployment --kubeconfig=${secretFile}
                         """
                     }
                 }                
