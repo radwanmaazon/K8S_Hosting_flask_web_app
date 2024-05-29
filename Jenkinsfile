@@ -11,7 +11,6 @@ pipeline {
                             docker build -t grocery_flask_app -f App_dockerfile .
                             docker login -u $dockerHubUser -p $dockerHubPassword
                             docker tag grocery_flask_app:latest radwanmaazon/grocery_flask_app:${BUILD_NUMBER}
-                            docker push radwanmaazon/grocery_flask_app:${BUILD_NUMBER}
                         '''
                     }                    
                 }
@@ -19,15 +18,17 @@ pipeline {
         }
         stage ('deploy'){
             steps{
-                echo ('deploy')
-                withCredentials([file(credentialsId: 'youCredId', variable: 'secretFile')]){
+                script {
+                    echo ('deploy')
+                    withCredentials([file(credentialsId: 'youCredId', variable: 'secretFile')]){
                     sh"""
                         cp Deployment/application.yml Deployment/application.yml.temp
                         cat Deployment/application.yml.temp | envsubst > Deployment/application.yml 
                         rm Deployment/application.yml.temp
                        # kubectl apply -f Deployment/ --kubeconfig=$
                     """
-                }
+                    }
+                }                
             }
         }
     }
