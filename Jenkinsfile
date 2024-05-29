@@ -25,7 +25,7 @@ pipeline {
                         cp Deployment/application.yml Deployment/application.yml.temp
                         cat Deployment/application.yml.temp | envsubst > Deployment/application.yml 
                         rm Deployment/application.yml.temp
-                        kubectl apply -f Deployment/ --kubeconfig=$
+                       # kubectl apply -f Deployment/ --kubeconfig=$
                     """
                 }
             }
