@@ -25,9 +25,9 @@ RUN service ssh start
 RUN apt update \
     && apt-get install gnupg gnupg1 gnupg2 -y
 RUN mkdir -p /etc/apt/keyrings/
-ADD ./kubernetes-apt-keyring.gpg /etc/apt/keyrings/
+ADD jenkins/kubernetes-apt-keyring.gpg /etc/apt/keyrings/
 RUN touch /etc/apt/sources.list.d/kubernetes.list 
-COPY ./kubernetes.list /etc/apt/sources.list.d/
+COPY jenkins/kubernetes.list /etc/apt/sources.list.d/
 RUN apt-get update
 RUN apt-get install -y kubectl
 #install helm3
@@ -46,8 +46,8 @@ RUN apt update \
 RUN apt-get update && apt-get install -y openjdk-11-jdk && rm -rf /var/lib/apt/lists/* 
 # Install Maven
 RUN apt-get update \ 
-    && apt-get install -y maven \ 
-    && apt-get install gettext
+    && apt-get install -y maven \
+    && apt-get install -y gettext
 RUN usermod -aG docker jenkins
 RUN apt clean && \
     rm -rf /var/lib/apt/lists/*
