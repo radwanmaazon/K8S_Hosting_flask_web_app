@@ -1,3 +1,4 @@
 .env
 test/
 Deployment/db_secret.yml
+config
