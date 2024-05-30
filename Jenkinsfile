@@ -15,7 +15,7 @@ pipeline {
                             docker login -u $dockerHubUser -p $dockerHubPassword
                             docker tag grocery_flask_app:latest radwanmaazon/grocery_flask_app:${BUILD_NUMBER}.0
                             docker push radwanmaazon/grocery_flask_app:${BUILD_NUMBER}.0
-                            echo ${BUILD_NUMBER}.0 > ../buildnumber.txt
+                            echo ${BUILD_NUMBER} > ../buildnumber.txt
                         '''
                         }
                     }                                        
