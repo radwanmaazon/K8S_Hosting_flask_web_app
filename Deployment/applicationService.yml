@@ -10,7 +10,7 @@ spec:
   - port: 80
     protocol: TCP
     targetPort: 80
-    nodePort: 30050
+    nodePort: 30052
   selector:
     app: grocery-website
   type: NodePort
