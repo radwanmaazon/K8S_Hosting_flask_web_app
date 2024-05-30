@@ -29,11 +29,19 @@ And I learned how can I achieve security for database connection for image befor
 ## Test Environment with service port 30052
 ![testns ](./images/testns.png)
 ## Dev Environmentwith service port 30053
-##### Adding new Item in database 
+##### Adding new Item to database 
 ![devns ](./images/devns.png)
 ## production Environment with service port 30051
 ##### All is Done and should be published 
 ![production ](./images/productionns.png)
+
+## Jenkins multibranch pipeline 
+![Jenkins ](./images/jenkins.png)
+
+## Ownership
+![Radwan Maazon](images/Radwan1.jpg)|
+|:-----------------:|
+|[Radwan Maazon](https://github.com/redwan2050)|
 
 
 
