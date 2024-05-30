@@ -22,6 +22,12 @@ And I gained experience in how can I achieve security for database connection fo
 ```
     you can replace radwanmaazon by your dockerhub username and you can change the version
 
+#### release environment in Jenkins pipeline will be responsible for build and push flask application to docker hub with the following commands
+``` sh
+    docker build -t grocery_flask_app -f App_dockerfile .
+    docker tag grocery_flask_app:latest radwanmaazon/grocery_flask_app:${BUILD_NUMBER}.0
+    docker push radwanmaazon/grocery_flask_app:${BUILD_NUMBER}.0
+```
 ### From jenkins master Manage Jenkins --> nodes configure new node to attach the slave to jenkins master 
 
 ### Configure multibranch pipeline
