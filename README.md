@@ -29,8 +29,11 @@ And I learned how can I achieve security for database connection for image befor
 ## Test Environment with service port 30052
 ![testns ](./images/testns.png)
 ## Dev Environmentwith service port 30053
+##### Adding new Item in database 
 ![devns ](./images/devns.png)
 ## production Environment with service port 30051
+##### All is Done and should be published 
 ![production ](./images/productionns.png)
+
 
 
