@@ -1,14 +1,14 @@
 pipeline {
     agent { label 'radwan-jenkins-pipeline' }
     parameters {
-        choise {name:'Env' ,choises [ 'dev', 'test', 'main', "rebase"]}
+        choise {name:'Env' ,choises [ 'dev', 'test', 'main', "release"]}
     }
     stages {
         stage('build') {
             steps {
                 script {
                     echo "Build"
-                    if (params.Env == "rebase"){
+                    if (params.Env == "release"){
                         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
                         sh '''
                             docker build -t grocery_flask_app -f App_dockerfile .
@@ -26,7 +26,7 @@ pipeline {
             steps{
                 script {
                     echo ('deploy')
-                    if (params.Env == 'dev' || params.Env == 'test' || params.Env == 'test'){
+                    if (params.Env == 'dev' || params.Env == 'test' || params.Env == 'main'){
                         withCredentials([file(credentialsId: 'flask_app_cred', variable: 'secretFile')]){
                         sh """
                             export BUILD_NUMBER=\$(cat ../buildnumber.txt)
