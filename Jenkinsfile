@@ -1,13 +1,13 @@
 pipeline {
     agent { label 'radwan-jenkins-pipeline' }
     parameters {
-        choice (name: 'ENV' , choices: ['test' ,'dev', 'main' , "release"])
+        choice (name: 'Env' , choices: ['test' ,'dev', 'main' , "release"])
     }
     stages {
         stage('build') {
             steps {
-                script {
-                    echo "Build"
+                echo "Build"
+                script {                    
                     if (params.Env == "release"){
                         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
                         sh '''
