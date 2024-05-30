@@ -1,7 +1,7 @@
 pipeline {
     agent { label 'radwan-jenkins-pipeline' }
     parameters {
-        choice (name: 'ENV' , choices: ['test' ,'dev', 'main' , "release"])
+        choice (name: 'Env' , choices: ['test' ,'dev', 'main' , "release"])
     }
     stages {
         stage('build') {
