@@ -8,13 +8,13 @@ I used mariaDB database and Nginx webserver, I used galera cluster for Databases
 And I learned how can I achieve security for database connection for image before push it to dockerhub and achieve security for database connection before push my code to git hub.
 
 ## To run my kubernetes project
-### first should deploy jenkins nameSpace, jenkins master and it's service 
+#### first should deploy jenkins nameSpace, jenkins master and it's service 
 ``` sh 
     $ k apply -f jenkins/jenkins-namespace.yml               # create jenkins namespace 
     $ k apply -f jenkins/pv-pvc.yml                          # create nfs pv and nfs pvc 
     $ k apply -f jenkins/deploy-jenkins.yml                  # create jenkins master and its service
 ```
-### build slave image and push it to your dockerhub
+#### build slave image and push it to your dockerhub
 ``` sh
     docker build -t jenkins-slave -f jenkins/jenkinsDockerFile .  
     docker tag jenkins-slave jenkins-slave radwanmaazon/jenkins-slave:ubuntu22
@@ -22,9 +22,15 @@ And I learned how can I achieve security for database connection for image befor
 ```
     you can replace radwanmaazon by your dockerhub username and you can change the version
 
-## From jenkins master Manage Jenkins --> nodes configure new node to attach the slave to jenkins master 
+### From jenkins master Manage Jenkins --> nodes configure new node to attach the slave to jenkins master 
 
-## Configure multibranch pipeline
+### Configure multibranch pipeline
 
-# Test Environment 
+## Test Environment with service port 30052
 ![testns ](./images/testns.png)
+## Dev Environmentwith service port 30053
+![devns ](./images/devns.png)
+## production Environment with service port 30051
+![production ](./images/productionns.png)
+
+
