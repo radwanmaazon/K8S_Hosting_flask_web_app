@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                script {
-                    echo "Build"
+                echo "Build"
+                script {                    
                     if (params.Env == "release"){
                         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
                         sh '''
