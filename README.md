@@ -5,7 +5,7 @@ release branch to build image and push it to dockerhub.
 and main, dev, test and prod use to pull last version for image from docker hub and deploy it.
 
 I used mariaDB database and Nginx webserver, I used galera cluster for Databases to let the application can use three nodes of mariaDB and I used proxysql as a loadbalancer to achieve high availability to accessing databases nodes.
-And I learned how can I achieve security for database connection for image before push it to dockerhub and achieve security for database connection before push my code to git hub.
+And I gained experience in how can I achieve security for database connection for application before push image to dockerhub and achieve security for database connection before push my code to git hub.
 
 ## To run my kubernetes project
 #### first should deploy jenkins nameSpace, jenkins master and it's service 
